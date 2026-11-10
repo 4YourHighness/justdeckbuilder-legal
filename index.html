@@ -22,7 +22,7 @@
 <body>
 <main>
 <h1>JustDeckBuilder</h1>
-<p class="muted">Inoffizielle Fan-App zur Verwaltung einer Magic-Sammlung und physischer Decks · Stand: Oktober 2026</p>
+<p class="muted">Inoffizielle Fan-App zur Verwaltung einer Magic-Sammlung und physischer Decks · Stand: November 2026</p>
 <nav><a href="#de">Deutsch</a><a href="#en">English</a></nav>
 
 <section id="de" lang="de">
@@ -37,31 +37,47 @@
 <p>Eduard Just, Flanderstraße 97/3, 72458 Albstadt, Deutschland, E-Mail: eddy1303.ej@googlemail.com</p>
 
 <h3>2. Grundsatz</h3>
-<p>JustDeckBuilder kommt ohne Benutzerkonto, Werbung und Analyse- oder Tracking-Dienste aus. Sammlung, Decks, Einstellungen sowie heruntergeladene Regeln und Bilder werden ausschließlich lokal auf deinem Gerät gespeichert. Der Entwickler erhält keine dieser Daten.</p>
+<p>JustDeckBuilder kommt ohne Benutzerkonto beim Entwickler, Werbung und Analyse- oder Tracking-Dienste aus. Sammlung, Decks, Spielergebnisse aus dem Lebenszähler, Einstellungen sowie heruntergeladene Regeln und Bilder werden lokal auf deinem Gerät gespeichert. Sie verlassen dein Gerät nur, wenn du selbst eine der unten beschriebenen Funktionen nutzt (Synchronisation, Austausch mit Geräten in der Nähe, Teilen von Dateien). Der Entwickler erhält keine dieser Daten und betreibt keine eigenen Server dafür.</p>
 
 <h3>3. Verbindungen zu Drittanbietern</h3>
 <p>Für einzelne Funktionen baut die App Verbindungen zu folgenden Diensten auf. Dabei wird technisch bedingt deine IP-Adresse an den jeweiligen Anbieter übertragen:</p>
 <ul>
-<li><strong>Scryfall</strong> (scryfall.com, USA): Kartendaten, Online-Suche und Kartenbilder.</li>
+<li><strong>Scryfall</strong> (scryfall.com, USA): Kartendaten, Online-Suche, Kartenbilder und deutsche Kartentexte (auch deutsche Drucke derselben Karte aus anderen Editionen). Übertragen werden nur Suchbegriffe bzw. Karten-Kennungen, keine Angaben zu deiner Sammlung als Ganzes.</li>
 <li><strong>Wizards of the Coast</strong> (magic.wizards.com): Herunterladen der offiziellen Comprehensive Rules – nur, wenn du dies auslöst.</li>
 <li><strong>Optional</strong>, nur wenn du selbst einen API-Schlüssel hinterlegst: Anthropic, OpenAI, ein von dir angegebener OpenAI-kompatibler Dienst oder DeepL. Übertragen werden der zu übersetzende Regeltext und dein API-Schlüssel, sobald du eine Übersetzung startest.</li>
 </ul>
 <p>Es gelten zusätzlich die Datenschutzbestimmungen dieser Anbieter. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b bzw. f DSGVO (Bereitstellung der von dir genutzten Funktionen).</p>
 
-<h3>4. Dateien</h3>
-<p>CSV- und Deck-Dateien werden nur gelesen bzw. geschrieben, wenn du sie selbst über die Dateiauswahl des Systems auswählst.</p>
+<h3>4. Synchronisation im Haushalt (optional)</h3>
+<p>Die Synchronisation ist standardmäßig ausgeschaltet. Du kannst sie in den Einstellungen aktivieren, um Sammlung und Decks mit anderen Personen bzw. Geräten zu teilen (&bdquo;Haushalt&ldquo;). Synchronisiert werden: Sammlungseinträge, Decks und Deck-Zuordnungen, Deck-Besitzer, Spielergebnisse, ein von dir gewählter Anzeigename sowie technische Kennungen (Haushalts-ID, Geräte- bzw. Nutzer-ID, Zeitstempel). Alle Mitglieder eines Haushalts sehen diese Daten und deinen Anzeigenamen.</p>
+<p><strong>a) Eigenes Firebase-Projekt.</strong> Du kannst ein eigenes Projekt bei Google Firebase (Google Ireland Ltd. bzw. Google LLC, USA) hinterlegen. Die App meldet sich dort anonym an (Firebase Authentication, ohne Name oder E-Mail-Adresse) und speichert die oben genannten Daten in der Datenbank Cloud Firestore dieses Projekts. Das Projekt gehört dir bzw. der Person, die es eingerichtet hat; der Entwickler hat keinen Zugriff darauf. Für die Verarbeitung durch Google gelten die Bedingungen und Datenschutzbestimmungen von Google/Firebase; dabei kann eine Übermittlung in die USA stattfinden. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO.</p>
+<p><strong>b) Geräte in der Nähe.</strong> Alternativ können Geräte direkt miteinander abgleichen. Die Verbindung wird über die Google-Play-Dienste (Nearby Connections) per Bluetooth und WLAN hergestellt; die Daten werden direkt zwischen den beteiligten Geräten übertragen, nicht über einen Server des Entwicklers. Ein Austausch findet erst statt, wenn er auf beiden Geräten bestätigt wurde.</p>
+<p>Du kannst die Synchronisation jederzeit ausschalten oder den Haushalt verlassen. Bereits an andere Mitglieder übertragene Daten liegen dann weiterhin auf deren Geräten bzw. im Firebase-Projekt und können dort vom jeweiligen Inhaber gelöscht werden.</p>
 
-<h3>5. API-Schlüssel</h3>
+<h3>5. Decks teilen und tauschen</h3>
+<p>Über &bdquo;Decktausch&ldquo; kannst du Decks an ein Gerät in der Nähe senden oder von dort empfangen (Google-Play-Dienste, Nearby Connections, direkt zwischen den Geräten). Übertragen werden nur die von dir ausgewählten Decks (Deckname, Kartenliste, auf Wunsch die Zuordnung zu deiner Sammlung). Alternativ kannst du Decks als Datei exportieren oder über das Teilen-Menü von Android an eine App deiner Wahl (z. B. Messenger, E-Mail, Cloud-Speicher) weitergeben; dann gelten die Datenschutzbestimmungen dieser App.</p>
+
+<h3>6. Berechtigungen</h3>
+<ul>
+<li><strong>Internet</strong>: für die in Abschnitt 3 und 4 genannten Dienste.</li>
+<li><strong>Standort (ungefähr und genau), Bluetooth, Geräte in der Nähe / WLAN, lokales Netzwerk</strong>: nur für die Suche und Verbindung mit Geräten in der Nähe (Abschnitte 4 b und 5). Android verlangt die Standortberechtigung für die Suche nach Geräten in der Nähe. Die App ermittelt, speichert oder überträgt deinen Standort nicht. Die Berechtigungen werden erst angefragt, wenn du eine dieser Funktionen startest.</li>
+<li><strong>Benachrichtigungen</strong>: Fortschrittsanzeige für Import und Downloads (Abschnitt 10).</li>
+</ul>
+
+<h3>7. Dateien und Fehlerprotokoll</h3>
+<p>CSV- und Deck-Dateien werden nur gelesen bzw. geschrieben, wenn du sie selbst über die Dateiauswahl des Systems auswählst oder eine Datei mit JustDeckBuilder öffnest. Ein Fehlerprotokoll (Gerätemodell, Android-Version, technische Protokollzeilen der App) wird nur erstellt und weitergegeben, wenn du dies in den Einstellungen selbst auslöst und einen Empfänger auswählst.</p>
+
+<h3>8. API-Schlüssel</h3>
 <p>API-Schlüssel werden verschlüsselt (Android Keystore) auf dem Gerät gespeichert und nur an den jeweiligen Dienst gesendet.</p>
 
-<h3>6. Google Play, Spenden und Datensicherung</h3>
+<h3>9. Google Play, Spenden und Datensicherung</h3>
 <p>Wenn du die App über Google Play beziehst oder dort freiwillig spendest, gelten zusätzlich die Datenschutzbestimmungen von Google. Zahlungsdaten werden ausschließlich von Google verarbeitet; die App erhält sie nicht. Ist die Android-Datensicherung auf deinem Gerät aktiv, können App-Daten nach den Einstellungen deines Google-Kontos gesichert werden.</p>
 
-<h3>7. Benachrichtigungen</h3>
+<h3>10. Benachrichtigungen</h3>
 <p>Während Import oder Downloads im Hintergrund laufen, zeigt die App eine Fortschritts-Benachrichtigung an. Dabei werden keine Daten übertragen.</p>
 
-<h3>8. Deine Rechte</h3>
-<p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch (Art. 15–21 DSGVO) sowie das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde. Da der Entwickler keine personenbezogenen Daten von dir speichert, kannst du lokale Daten jederzeit selbst löschen, indem du die App-Daten löschst oder die App deinstallierst.</p>
+<h3>11. Deine Rechte</h3>
+<p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch (Art. 15–21 DSGVO) sowie das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde. Da der Entwickler keine personenbezogenen Daten von dir speichert, kannst du lokale Daten jederzeit selbst löschen, indem du die App-Daten löschst oder die App deinstallierst. Synchronisierte Daten in einem Firebase-Projekt löscht der Inhaber des Projekts; Daten auf den Geräten anderer Haushaltsmitglieder löschen diese selbst.</p>
 
 <h2>Fan Content Policy</h2>
 <p>JustDeckBuilder ist inoffizieller Fan-Content gemäß der Fan Content Policy. Nicht von Wizards genehmigt oder unterstützt. Teile der verwendeten Materialien sind Eigentum von Wizards of the Coast. ©Wizards of the Coast LLC.</p>
@@ -81,31 +97,47 @@
 <p>Eduard Just, Flanderstraße 97/3, 72458 Albstadt, Germany, e-mail: eddy1303.ej@googlemail.com</p>
 
 <h3>2. Principle</h3>
-<p>JustDeckBuilder works without a user account, advertising or analytics/tracking services. Your collection, decks, settings and downloaded rules and images are stored only locally on your device. The developer does not receive any of this data.</p>
+<p>JustDeckBuilder works without an account with the developer, advertising or analytics/tracking services. Your collection, decks, game results from the life counter, settings and downloaded rules and images are stored locally on your device. They only leave your device if you use one of the features described below (sync, exchange with nearby devices, sharing files). The developer does not receive any of this data and does not operate servers for it.</p>
 
 <h3>3. Connections to third parties</h3>
 <p>For some features the app connects to the following services. For technical reasons your IP address is transmitted to the respective provider:</p>
 <ul>
-<li><strong>Scryfall</strong> (scryfall.com, USA): card data, online search and card images.</li>
+<li><strong>Scryfall</strong> (scryfall.com, USA): card data, online search, card images and German card texts (including German printings of the same card from other sets). Only search terms or card identifiers are transmitted, not your collection as a whole.</li>
 <li><strong>Wizards of the Coast</strong> (magic.wizards.com): downloading the official Comprehensive Rules – only when you trigger it.</li>
 <li><strong>Optional</strong>, only if you enter an API key yourself: Anthropic, OpenAI, an OpenAI-compatible service you specify, or DeepL. The rule text to be translated and your API key are transmitted when you start a translation.</li>
 </ul>
 <p>The privacy policies of these providers apply in addition. Legal basis is Art. 6(1)(b) and (f) GDPR.</p>
 
-<h3>4. Files</h3>
-<p>CSV and deck files are only read or written when you select them yourself via the system file picker.</p>
+<h3>4. Household sync (optional)</h3>
+<p>Sync is switched off by default. You can enable it in the settings to share your collection and decks with other people or devices (&ldquo;household&rdquo;). The following is synchronised: collection entries, decks and deck allocations, deck owners, game results, a display name you choose and technical identifiers (household ID, device or user ID, timestamps). All members of a household can see this data and your display name.</p>
+<p><strong>a) Your own Firebase project.</strong> You can set up your own project with Google Firebase (Google Ireland Ltd. or Google LLC, USA). The app signs in there anonymously (Firebase Authentication, without name or e-mail address) and stores the data listed above in that project's Cloud Firestore database. The project belongs to you or to the person who set it up; the developer has no access to it. Google's/Firebase's terms and privacy policy apply to processing by Google; data may be transferred to the USA. Legal basis is Art. 6(1)(b) GDPR.</p>
+<p><strong>b) Nearby devices.</strong> Alternatively, devices can sync directly with each other. The connection is established via Google Play services (Nearby Connections) over Bluetooth and Wi-Fi; data is transferred directly between the devices involved, not via a server of the developer. An exchange only takes place once it has been confirmed on both devices.</p>
+<p>You can switch off sync or leave the household at any time. Data already transferred to other members remains on their devices or in the Firebase project and can be deleted there by the respective owner.</p>
 
-<h3>5. API keys</h3>
+<h3>5. Sharing and exchanging decks</h3>
+<p>Via &ldquo;Deck exchange&rdquo; you can send decks to or receive decks from a nearby device (Google Play services, Nearby Connections, directly between the devices). Only the decks you select are transferred (deck name, card list and, if you choose, the allocation to your collection). Alternatively, you can export decks as files or pass them on via the Android share menu to an app of your choice (e.g. messenger, e-mail, cloud storage); that app's privacy policy then applies.</p>
+
+<h3>6. Permissions</h3>
+<ul>
+<li><strong>Internet</strong>: for the services listed in sections 3 and 4.</li>
+<li><strong>Location (approximate and precise), Bluetooth, nearby devices / Wi-Fi, local network</strong>: only for discovering and connecting to nearby devices (sections 4 b and 5). Android requires the location permission to discover nearby devices. The app does not determine, store or transmit your location. These permissions are only requested when you start one of these features.</li>
+<li><strong>Notifications</strong>: progress display for imports and downloads (section 10).</li>
+</ul>
+
+<h3>7. Files and error log</h3>
+<p>CSV and deck files are only read or written when you select them yourself via the system file picker or open a file with JustDeckBuilder. An error log (device model, Android version, technical log lines of the app) is only created and shared if you trigger this yourself in the settings and choose a recipient.</p>
+
+<h3>8. API keys</h3>
 <p>API keys are stored encrypted (Android Keystore) on the device and only sent to the respective service.</p>
 
-<h3>6. Google Play, donations and backup</h3>
+<h3>9. Google Play, donations and backup</h3>
 <p>If you obtain the app via Google Play or make a voluntary donation there, Google's privacy policy applies in addition. Payment data is processed exclusively by Google; the app never receives it. If Android backup is enabled, app data may be backed up according to your Google account settings.</p>
 
-<h3>7. Notifications</h3>
+<h3>10. Notifications</h3>
 <p>While an import or downloads run in the background, the app shows a progress notification. No data is transmitted for this.</p>
 
-<h3>8. Your rights</h3>
-<p>You have the right of access, rectification, erasure, restriction of processing, data portability and objection (Art. 15–21 GDPR) and the right to lodge a complaint with a supervisory authority. Since the developer does not store any personal data about you, you can delete local data at any time by clearing the app data or uninstalling the app.</p>
+<h3>11. Your rights</h3>
+<p>You have the right of access, rectification, erasure, restriction of processing, data portability and objection (Art. 15–21 GDPR) and the right to lodge a complaint with a supervisory authority. Since the developer does not store any personal data about you, you can delete local data at any time by clearing the app data or uninstalling the app. Synchronised data in a Firebase project is deleted by the owner of the project; data on other household members' devices is deleted by those members themselves.</p>
 
 <h2>Fan Content Policy</h2>
 <p>JustDeckBuilder is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC. Card data and images are provided by Scryfall; JustDeckBuilder is not affiliated with Scryfall or Wizards of the Coast.</p>
